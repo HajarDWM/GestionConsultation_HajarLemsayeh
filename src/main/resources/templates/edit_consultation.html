@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <title>Modifier Consultation</title>
+</head>
+<body>
+<section layout:fragment="content">
+  <form th:object="${consultation}" th:action="@{/consultation/update}" method="post">
+    <input type="hidden" th:field="*{idConsultation}" />
+
+    <label class="form-label" for="date">Date:</label>
+    <input class="form-control" type="date" id="date" th:field="*{dateConsultation}" required>
+
+    <label class="form-label" for="patient">Patient:</label>
+    <select class="form-select" id="patient" th:field="*{patient.idPatient}" required>
+      <option th:each="patient:${patients}" th:value="${patient.idPatient}" th:text="${patient.nom}"></option>
+    </select>
+
+    <label class="form-label" for="description">Description:</label>
+    <textarea class="form-control" id="description" th:field="*{description}" cols="30" rows="10"></textarea>
+
+    <input type="submit" value="Mettre à jour" class="btn btn-success">
+    <a href="/consultation" class="btn btn-secondary">Annuler</a>
+  </form>
+</section>
+</body>
+</html>
