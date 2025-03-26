@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{layout.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contactez-Nous</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+<section layout:fragment="content">
+<div class="container text-center my-5">
+    <h2 class="fw-bold">CONTACTEZ-NOUS</h2>
+    <p class="text-muted">Nous sommes disponibles du lundi au samedi de 10h à 19h.</p>
+    <div class="row mt-4">
+
+        <!-- Phone Contact -->
+        <div class="col-md-4">
+            <i class="bi bi-telephone fs-1"></i>
+            <h5 class="mt-2">Par téléphone</h5>
+            <p>Appelez-nous au :  <span th:text="${phone}">+33 1 87 66 88 43</span></p>
+        </div>
+
+        <!-- Chat Contact -->
+        <div class="col-md-4">
+            <i class="bi bi-chat-left-text fs-1"></i>
+            <h5 class="mt-2">Par chat</h5>
+            <p>Posez-nous toutes vos questions en cliquant sur le chat en bas à gauche de chaque page.</p>
+        </div>
+
+        <!-- Email Contact -->
+        <div class="col-md-4">
+            <i class="bi bi-envelope fs-1"></i>
+            <h5 class="mt-2">Par mail</h5>
+            <p>Écrivez-nous sur l'adresse mail : <span th:text="${email}">contact@kikikickz.com</span></p>
+        </div>
+    </div>
+</div>
+</section>
+</body>
+</html>
