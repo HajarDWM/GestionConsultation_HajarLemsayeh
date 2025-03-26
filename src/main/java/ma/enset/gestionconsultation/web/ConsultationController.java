@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
+@RequestMapping("/consultation")
 public class ConsultationController {
     public CabinetService cabinetService;
 
@@ -17,14 +18,14 @@ public class ConsultationController {
         this.cabinetService = cabinetService;
     }
 
-    @GetMapping ("/consultation")
+    @GetMapping
     public String getConsultation(Model model){
         List<Consultation> consultationList= cabinetService.getAllConsultation();
         model.addAttribute("consultationList",consultationList);
         return "consultationList";
     }
 
-    @GetMapping("/consultations/new")
+    @GetMapping("/new")
     public String addConsultation(Model model){
         List<Patient> patients=cabinetService.getAllPatients();
         Consultation consultation = new Consultation();
@@ -33,7 +34,7 @@ public class ConsultationController {
         return "add_consultation";
     }
 
-    @PostMapping("/consultations")
+    @PostMapping
     public String saveConsultation(@ModelAttribute Consultation consultation, @RequestParam Long idPatient) {
         cabinetService.saveConsultation(consultation,idPatient);
 
@@ -45,7 +46,7 @@ public class ConsultationController {
         cabinetService.deletConsultationById(id);
         return "redirect:/consultation";
     }
-    @GetMapping("/consultation/getById/{id}")
+    @GetMapping("/getById/{id}")
     public String getConsultationById(Model model,@PathVariable("id")Long id){
         Consultation consultation = cabinetService.getConsultationById(id);
        model.addAttribute("consultation", consultation);
@@ -55,7 +56,7 @@ public class ConsultationController {
 
     }
 
-    @PostMapping("/consultation/update")
+    @PostMapping("/update")
     public String updateConsultation(@ModelAttribute Consultation consultation) {
         System.out.println(" Id Patient"+consultation.getPatient().getIdPatient());
         Long idPatient = consultation.getPatient().getIdPatient();

@@ -23,8 +23,7 @@
         <tr th:each="consultation:${consultationList}">
 
             <td th:text="${consultation.dateConsultation}"></td>
-            <td th:text="${consultation.patient.idPatient}"></td>
-            <td th:text="${consultation.description}"></td>
+            <td th:text="${consultation.patient != null ? consultation.patient.idPatient : 'N/A'}"></td>            <td th:text="${consultation.description}"></td>
 
             <td> <a class="btn btn-danger" th:href="@{/deleteConsultation(id=${consultation.idConsultation})}">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
