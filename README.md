@@ -79,7 +79,7 @@ une description(controle )
 
 
 ## Améliorations Futures
-📅 Vue Calendrier – Planification des Consultations
+📅 Vue Calendrier – Planification des Consultations 
 
 ![img_15.png](img_15.png)
 
